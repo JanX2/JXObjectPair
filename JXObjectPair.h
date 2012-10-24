@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "JXArcCompatibilityMacros.h"
+
 @interface JXObjectPair : NSObject <NSCopying, NSCoding>
 
 @property (nonatomic, readwrite, retain) id firstObject;

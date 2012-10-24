@@ -15,7 +15,7 @@
 
 + (id)pairWithFirstObject:(id)anObject andSecondObject:(id)anotherObject index:(NSUInteger)theIndex;
 {
-	return [[[self alloc] initWithFirstObject:anObject andSecondObject:anotherObject index:theIndex] autorelease];
+	return JX_AUTORELEASE([[self alloc] initWithFirstObject:anObject andSecondObject:anotherObject index:theIndex]);
 }
 
 - (id)initWithFirstObject:(id)anObject andSecondObject:(id)anotherObject index:(NSUInteger)theIndex;

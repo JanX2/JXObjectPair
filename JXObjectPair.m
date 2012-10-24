@@ -18,12 +18,12 @@
 
 + (id)pair;
 {
-	return [[[self alloc] init] autorelease];
+	return JX_AUTORELEASE([[self alloc] init]);
 }
 
 + (id)pairWithFirstObject:(id)anObject andSecondObject:(id)anotherObject;
 {
-	return [[[self alloc] initWithFirstObject:anObject andSecondObject:anotherObject] autorelease];
+	return JX_AUTORELEASE([[self alloc] initWithFirstObject:anObject andSecondObject:anotherObject]);
 }
 
 - (id)initWithFirstObject:(id)anObject andSecondObject:(id)anotherObject;
@@ -31,14 +31,15 @@
 	self = [super init];
 	
 	if (self) {
-		firstObject = [anObject retain];
-		secondObject = [anotherObject retain];
+		firstObject = JX_RETAIN(anObject);
+		secondObject = JX_RETAIN(anotherObject);
 	}
 	
 	return self;
 }
 
 
+#if (JX_HAS_ARC == 0)
 - (void)dealloc
 {
 	self.firstObject = nil;
@@ -46,7 +47,7 @@
 	
 	[super dealloc];
 }
-
+#endif
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
